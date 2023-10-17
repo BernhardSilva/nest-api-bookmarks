@@ -6,7 +6,8 @@ import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
 import * as bcrypt from 'bcrypt';
-import { PrismaService } from 'src/prisma/prisma.service';
+
+import { PrismaService } from '../prisma/prisma.service';
 import { AuthDto } from './dto';
 
 @Injectable()
@@ -85,7 +86,7 @@ export class AuthService {
       payload,
       {
         secret,
-        expiresIn: '15m',
+        expiresIn: '1h',
       },
     );
     return {
